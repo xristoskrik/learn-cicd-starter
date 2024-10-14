@@ -1,0 +1,24 @@
+name: Continuous Deployment
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  Deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Check out the code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Go toolchain
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.23.1' # Replace with the version of Go you're using
+
+      # Step 3: Build the app using the build script
+      - name: Build app
+        run: bash scripts/buildprod.sh
