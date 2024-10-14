@@ -22,8 +22,6 @@ type apiConfig struct {
 	DB *database.Queries
 }
 
-// asdas dkasodasokdoaskda
-//
 //go:embed static/*
 var staticFiles embed.FS
 
